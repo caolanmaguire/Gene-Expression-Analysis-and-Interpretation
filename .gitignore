@@ -1,3 +1,46 @@
+# R files
+.Rhistory
+.RData
+.Rproj.user
+*.Rproj
+
+# Python files
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+*.ipynb
+
+# Data files (too large for GitHub)
+data/*.txt
+data/*.csv
+data/*.tsv
+data/*.tar.gz
+data/*.zip
+!data/.gitkeep
+
+# Large output files
+*.png
+*.jpg
+*.jpeg
+results/*.csv
+results/*.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
 /data
 /results
-/figures
