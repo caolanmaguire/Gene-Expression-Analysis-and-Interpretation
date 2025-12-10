@@ -320,8 +320,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Caolán Maguire**
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@ucd.ie
+- GitHub: [@caolanmaguire](https://github.com/caolanmaguire)
+- Email: caolan.maguire@ucdconnect.ie
 - Institution: University College Dublin
 
 ---
