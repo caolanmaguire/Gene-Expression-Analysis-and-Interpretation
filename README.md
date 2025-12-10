@@ -8,7 +8,7 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Key Findings](#key-findings)
@@ -27,16 +27,16 @@
 
 ---
 
-## 🔬 Overview
+## Overview
 
-This project analyzes RNA-seq data from The Cancer Genome Atlas (TCGA) breast cancer cohort to identify differentially expressed genes between **HER2-amplified (ERBB2+)** and **non-amplified** tumours.
+This project analyses RNA-seq data from The Cancer Genome Atlas (TCGA) breast cancer cohort to identify differentially expressed genes between **HER2-amplified (ERBB2+)** and **non-amplified** tumours.
 
 ### Objectives
 
 - Identify differentially expressed genes in HER2+ breast cancer
 - Perform pathway enrichment analysis to understand biological mechanisms
 - Develop prognostic gene signatures using survival analysis
-- Visualize expression patterns through dimensionality reduction
+- Visualise expression patterns through dimensionality reduction
 
 ### Clinical Relevance
 
@@ -48,7 +48,7 @@ HER2+ breast cancer represents ~15-20% of cases and is associated with aggressiv
 
 ---
 
-## 🎯 Key Findings
+## Key Findings
 
 > **Note**: This section will be updated after analysis completion
 
@@ -59,46 +59,11 @@ HER2+ breast cancer represents ~15-20% of cases and is associated with aggressiv
 
 ---
 
-## 📁 Project Structure
-```
-her2-breast-cancer-analysis/
-│
-├── README.md                          # This file
-├── .gitignore                         # Git ignore rules
-├── requirements.txt                   # R package dependencies
-│
-├── scripts/                           # Analysis scripts
-│   ├── 01_data_preprocessing.R        # Data loading and QC
-│   ├── 02_differential_expression.R   # DESeq2 analysis
-│   ├── 03_pathway_enrichment.R        # GO/KEGG enrichment
-│   ├── 04_visualization.R             # PCA, heatmaps
-│   ├── 05_survival_analysis.R         # Lasso Cox regression
-│   └── main_analysis.R                # Run complete pipeline
-│
-├── functions/                         # Helper functions
-│   └── helper_functions.R             # Reusable utility functions
-│
-├── data/                              # Raw data (not tracked by git)
-│   ├── .gitkeep                       # Placeholder
-│   └── README.txt                     # Data download instructions
-│
-├── figures/                           # Generated plots
-│   ├── volcano_plot.pdf
-│   ├── PCA_plot.pdf
-│   ├── heatmap_top50_genes.pdf
-│   └── kaplan_meier_risk_groups.pdf
-│
-└── results/                           # Analysis outputs
-    ├── DE_results_all_genes.csv
-    ├── DE_results_significant.csv
-    ├── top10_DE_genes.csv
-    ├── GO_enrichment_upregulated.csv
-    └── lasso_selected_genes.csv
-```
+## Project Structure
 
 ---
 
-## ⚙️ Prerequisites
+## Prerequisites
 
 ### Software Requirements
 
@@ -119,13 +84,13 @@ ComplexHeatmap      # Advanced heatmaps
 
 #### CRAN Packages
 ```r
-tidyverse           # Data manipulation and visualization
+tidyverse           # Data manipulation and visualisation
 pheatmap            # Heatmaps
 glmnet              # Lasso regression
 survival            # Survival analysis
-survminer           # Survival visualization
+survminer           # Survival visualisation
 ggrepel             # Label placement
-RColorBrewer        # Color palettes
+RColorBrewer        # Colour palettes
 ```
 
 ---
@@ -142,29 +107,7 @@ cd her2-breast-cancer-analysis
 
 Open R or RStudio and run:
 ```r
-# Install BiocManager if not already installed
-if (!require("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-
-# Install Bioconductor packages
-BiocManager::install(c(
-  "DESeq2",
-  "clusterProfiler",
-  "org.Hs.eg.db",
-  "EnhancedVolcano",
-  "ComplexHeatmap"
-))
-
-# Install CRAN packages
-install.packages(c(
-  "tidyverse",
-  "pheatmap",
-  "glmnet",
-  "survival",
-  "survminer",
-  "ggrepel",
-  "RColorBrewer"
-))
+source 00_install_libararies.R # - A install script that installs all required libararies
 ```
 
 ### Step 3: Verify Installation
@@ -176,9 +119,9 @@ packageVersion("clusterProfiler")
 
 ---
 
-## 📊 Data Download
+## Data Download
 
-### Option 1: Direct Download from cBioPortal
+### Direct Download from cBioPortal
 
 1. Visit [TCGA Breast Cancer Study](https://www.cbioportal.org/study/summary?id=brca_tcga_pan_can_atlas_2018)
 
@@ -191,19 +134,6 @@ packageVersion("clusterProfiler")
 
 4. Place files in the `data/` directory
 
-### Option 2: Using wget (Linux/Mac)
-```bash
-cd data/
-
-# Download dataset (replace with actual URLs if available)
-wget https://cbioportal-datahub.s3.amazonaws.com/brca_tcga_pan_can_atlas_2018.tar.gz
-
-# Extract
-tar -xzvf brca_tcga_pan_can_atlas_2018.tar.gz
-
-# Move required files to data/
-mv brca_tcga_pan_can_atlas_2018/data_*.txt .
-```
 
 ### Data Structure
 
@@ -217,7 +147,7 @@ data/
 
 ---
 
-## 🎮 Usage
+## Usage
 
 ### Quick Start: Run Complete Analysis
 ```r
@@ -232,7 +162,7 @@ This will:
 1. Load and preprocess data
 2. Perform differential expression analysis
 3. Run pathway enrichment
-4. Generate all visualizations
+4. Generate all visualisations
 5. Perform survival analysis
 6. Save results to `results/` and `figures/`
 
@@ -256,7 +186,7 @@ source("scripts/02_differential_expression.R")
 source("scripts/03_pathway_enrichment.R")
 # Outputs: GO/KEGG enrichment results and plots
 
-# Step 4: Visualization
+# Step 4: Visualisation
 source("scripts/04_visualization.R")
 # Outputs: PCA plot, heatmap
 
@@ -267,7 +197,7 @@ source("scripts/05_survival_analysis.R")
 
 ---
 
-## 📈 Outputs
+## Outputs
 
 ### Figures Generated
 
@@ -296,7 +226,7 @@ source("scripts/05_survival_analysis.R")
 
 ---
 
-## 🔬 Methods Summary
+## Methods Summary
 
 ### Differential Expression Analysis
 
@@ -312,14 +242,14 @@ source("scripts/05_survival_analysis.R")
 - **Databases**: 
   - GO Biological Process
   - KEGG pathways
-- **Background**: All expressed genes in dataset
+- **Background**: All expressed genes in the dataset
 - **Significance**: adjusted p-value < 0.05
 
 ### Dimensionality Reduction
 
-- **Transformation**: Variance Stabilizing Transformation (VST)
+- **Transformation**: Variance Stabilising Transformation (VST)
 - **PCA**: Base R `prcomp()` function
-- **Heatmap**: Top 50 DE genes, z-score normalized
+- **Heatmap**: Top 50 DE genes, z-score normalised
 
 ### Survival Analysis
 
@@ -331,7 +261,7 @@ source("scripts/05_survival_analysis.R")
 
 ---
 
-## 📊 Results
+## Results
 
 ### Differential Expression
 
@@ -352,12 +282,12 @@ source("scripts/05_survival_analysis.R")
 
 **Upregulated in HER2+:**
 - Cell proliferation
-- EGFR signaling pathway
+- EGFR signalling pathway
 - PI3K-Akt signaling
 
 **Downregulated in HER2+:**
 - Immune response
-- ECM organization
+- ECM organisation
 - Cell adhesion
 
 ### Survival Analysis
@@ -369,7 +299,7 @@ source("scripts/05_survival_analysis.R")
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 This is an academic assignment project. However, suggestions and feedback are welcome!
 
@@ -380,13 +310,13 @@ If you find issues or have suggestions:
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 📧 Contact
+## Contact
 
 **Caolán Maguire**
 
@@ -396,7 +326,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Data Source**: The Cancer Genome Atlas (TCGA) via cBioPortal
 - **Course**: ANAT40040 - Bio Principles & Cellular Org (2025/26)
@@ -408,7 +338,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📚 References
+## References
 
 - Cancer Genome Atlas Network. (2012). Comprehensive molecular portraits of human breast tumours. *Nature*, 490(7418), 61-70.
 - Love, M. I., Huber, W., & Anders, S. (2014). Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. *Genome Biology*, 15(12), 550.
@@ -416,7 +346,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📝 Session Info
+## Session Info
 ```r
 R version 4.3.2 (2023-10-31)
 Platform: x86_64-apple-darwin20 (64-bit)
@@ -427,14 +357,14 @@ Running under: macOS Sonoma 14.1
 
 ---
 
-## 🔄 Project Status
+## Project Status
 
 - [x] Project setup
 - [x] Data download
 - [x] Data preprocessing
 - [ ] Differential expression analysis
 - [ ] Pathway enrichment
-- [ ] Visualization
+- [ ] Visualisation
 - [ ] Survival analysis
 - [ ] Report writing
 
@@ -444,7 +374,6 @@ Running under: macOS Sonoma 14.1
 
 <div align="center">
 
-Made with ❤️ for ANAT40040 Assignment 2
 
 ⭐ Star this repo if you found it useful!
 
