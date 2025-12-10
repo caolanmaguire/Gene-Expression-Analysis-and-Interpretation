@@ -67,7 +67,7 @@ for (name in names(data_files)) {
         ncol(datasets[[name]]), "columns\n")
     
     cat("\nFirst few column names:\n")
-    print(head(colnames(datasets[[]])))
+    print(head(colnames(datasets[[name]])))
     
   } else {
     stop("ERROR: File not found - ", file_path)
@@ -80,3 +80,40 @@ for (name in names(data_files)) {
 # Check first few columns
 # cat("\nFirst few column names:\n")
 # print(head(colnames(rna_data)))
+
+rna_data <- datasets$rna
+clinical_data <- datasets$clinical
+cna_data <- datasets$cna
+
+# - - - - - Data Inspection - - - -\n")
+cat("✓ Data extracted:\n")
+cat("  - rna_data: ", nrow(rna_data), "x", ncol(rna_data), "\n")
+cat("  - clinical_data: ", nrow(clinical_data), "x", ncol(clinical_data), "\n")
+cat("  - cna_data: ", nrow(cna_data), "x", ncol(cna_data), "\n")
+
+
+# - - - - - Getter for sample ID formats - - - - \n")
+# RNA-sequence sample IDS (exlcude the first column)
+rna_samples <- colnames(rna_data)[-1] # -1 to remove the first column
+cat("RNA-seq ID (first):", rna_samples[1], "\n")
+cat("RNA-seq ID length:", nchar(rna_samples[1]), "characters\n")
+
+# CNA sample IDs (exclude Hugo_Symbol column)
+cna_samples <- colnames(cna_data)[-1]  # Remove first column
+cat("CNA ID (first):", cna_samples[1], "\n")
+cat("CNA ID length:", nchar(cna_samples[1]), "characters\n")
+
+# Clinical patient IDs
+clinical_samples <- clinical_data$PATIENT_ID
+cat("Clinical ID (first):", clinical_samples[1], "\n")
+cat("Clinical ID length:", nchar(clinical_samples[1]), "characters\n")
+
+# Check if they match format
+cat("\n--- ID Format Check ---\n")
+if (rna_samples[1] == cna_samples[1]) {
+  cat("✓ RNA and CNA IDs already match!\n")
+} else {
+  cat("⚠ RNA and CNA IDs have different formats\n")
+  cat("  RNA:", rna_samples[1], "\n")
+  cat("  CNA:", cna_samples[1], "\n")
+}
