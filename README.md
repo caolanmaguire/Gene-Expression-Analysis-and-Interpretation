@@ -50,16 +50,12 @@ HER2+ breast cancer represents ~15-20% of cases and is associated with aggressiv
 
 ## Key Findings
 
-> **Note**: This section will be updated after analysis completion
-
-- **XXX genes** significantly differentially expressed (padj < 0.05, |log2FC| > 1)
-- Top pathways enriched: [To be completed]
-- Prognostic signature identified: **XX genes** associated with survival
-- Risk stratification achieved significant separation (log-rank p = X.XXX)
-
+### TODO findings to be added
 ---
 
 ## Project Structure
+
+### TODO project structure to be added
 
 ---
 
