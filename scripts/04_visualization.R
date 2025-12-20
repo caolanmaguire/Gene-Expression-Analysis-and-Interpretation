@@ -2,7 +2,7 @@
 # Author: Caolán Maguire
 # Script 04: Visualization (PCA and Heatmap)
 
-cat("\n=== VISUALIZATION ===\n")
+cat("\n=== VISUALISATION ===\n")
 
 # Load libraries
 library(DESeq2)
@@ -11,7 +11,7 @@ library(pheatmap)
 library(RColorBrewer)
 
 # Load preprocessed data
-cat("Loading preprocessed data...\n")
+cat("Loading preprocessed data... \n")
 dds <- readRDS("results/dds_preprocessed.rds")
 
 # Get VST transformed data
