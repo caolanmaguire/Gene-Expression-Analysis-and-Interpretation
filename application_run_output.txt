@@ -21,3 +21,212 @@ Found cna : data/data_cna.txt
 All files found. Proceeding with data loading...
 
 Loading rna data from: data_mrna_seq_v2_rsem.txt 
+  Loaded: 20531 rows x 1084 columns
+
+First few column names:
+[1] "Hugo_Symbol"     "Entrez_Gene_Id"  "TCGA-3C-AAAU-01"
+[4] "TCGA-3C-AALI-01" "TCGA-3C-AALJ-01" "TCGA-3C-AALK-01"
+Loading clinical data from: data_clinical_patient.txt 
+  Loaded: 1084 rows x 38 columns
+
+First few column names:
+[1] "PATIENT_ID"          "SUBTYPE"            
+[3] "CANCER_TYPE_ACRONYM" "OTHER_PATIENT_ID"   
+[5] "AGE"                 "SEX"                
+Loading cna data from: data_cna.txt 
+  Loaded: 25128 rows x 1072 columns
+
+First few column names:
+[1] "Hugo_Symbol"     "Entrez_Gene_Id"  "TCGA-3C-AAAU-01"
+[4] "TCGA-3C-AALI-01" "TCGA-3C-AALJ-01" "TCGA-3C-AALK-01"
+
+--- Data Extraction ---
+Data extracted:
+  - rna_data:  20531 x 1084 
+  - clinical_data:  1084 x 38 
+  - cna_data:  25128 x 1072 
+
+--- Sample ID Format Check ---
+RNA-seq ID (first): Entrez_Gene_Id 
+RNA-seq ID length: 14 characters
+CNA ID (first): Entrez_Gene_Id 
+CNA ID length: 14 characters
+Clinical ID (first): TCGA-3C-AAAU 
+Clinical ID length: 12 characters
+
+--- ID Format Comparison ---
+RNA and CNA IDs already match.
+
+Preprocessing complete.
+
+--- Matching Sample IDs ---
+RNA samples: 1082 
+CNA samples: 1070 
+Clinical samples: 1084 
+Common patient IDs across all datasets: 1068 
+Matched RNA samples: 1068 
+Matched CNA samples: 1068 
+Matched datasets created.
+
+--- Extracting ERBB2 Status ---
+ERBB2 amplified samples: 328 
+ERBB2 not amplified samples: 740 
+
+--- Creating Metadata ---
+Metadata created with 1068 samples
+
+Not_Amplified     Amplified 
+          740           328 
+
+--- Preparing Count Matrix ---
+Rows after removing empty/duplicate genes: 20511 
+Count matrix dimensions: 20511 genes x 1068 samples
+
+--- Filtering Low-Count Genes ---
+Original genes: 20511 
+After filtering: 14030 
+Genes removed: 6481 
+
+--- Creating DESeq2 Dataset ---
+DESeq2 dataset created successfully
+Dimensions: 14030 genes x 1068 samples
+Saved: results/dds_preprocessed.rds
+Saved: results/metadata.csv
+
+=== PREPROCESSING COMPLETE ===
+
+
+
+
+Step 2/5: Differential Expression Analysis...
+
+out of 14030 with nonzero total read count
+adjusted p-value < 0.1
+LFC > 0 (up)       : 3942, 28%
+LFC < 0 (down)     : 4398, 31%
+outliers [1]       : 0, 0%
+low counts [2]     : 0, 0%
+(mean count < 14)
+[1] see 'cooksCutoff' argument of ?results
+[2] see 'independentFiltering' argument of ?results
+
+Total significant genes: 83 
+
+--- Getting Top 10 Genes ---
+           baseMean log2FoldChange      lfcSE     stat
+ERBB2    18302.3615       2.845020 0.07765729 36.63558
+GRB7      1309.9615       2.635151 0.07823947 33.68059
+PPP1R1B   3456.5572       2.504771 0.15980061 15.67435
+C17orf37  1972.6841       2.433421 0.07080448 34.36819
+GSDMB      198.0061       2.320866 0.09479743 24.48237
+                pvalue          padj     gene
+ERBB2    7.764029e-294 1.089293e-289    ERBB2
+GRB7     1.112419e-248 3.121446e-245     GRB7
+PPP1R1B   2.265329e-55  9.932053e-53  PPP1R1B
+C17orf37 7.535775e-259 2.643173e-255 C17orf37
+GSDMB    2.276582e-132 2.281461e-129    GSDMB
+        baseMean log2FoldChange     lfcSE       stat
+AK5     247.2673      -1.532256 0.1261037 -12.150765
+KRT14  3545.1069      -1.516850 0.1749220  -8.671582
+S100B   199.7014      -1.413114 0.1424007  -9.923506
+IRX1    196.0203      -1.411402 0.1421021  -9.932316
+CXCL13  925.7742      -1.408321 0.1657218  -8.498106
+             pvalue         padj   gene
+AK5    5.683160e-34 7.973473e-32    AK5
+KRT14  4.261562e-18 1.928701e-16  KRT14
+S100B  3.289924e-23 2.481593e-21  S100B
+IRX1   3.011786e-23 2.309036e-21   IRX1
+CXCL13 1.927087e-17 8.217942e-16 CXCL13
+Top 10 genes saved
+             gene log2FoldChange        pvalue          padj
+ERBB2       ERBB2       2.845020 7.764029e-294 1.089293e-289
+GRB7         GRB7       2.635151 1.112419e-248 3.121446e-245
+PPP1R1B   PPP1R1B       2.504771  2.265329e-55  9.932053e-53
+C17orf37 C17orf37       2.433421 7.535775e-259 2.643173e-255
+GSDMB       GSDMB       2.320866 2.276582e-132 2.281461e-129
+AK5           AK5      -1.532256  5.683160e-34  7.973473e-32
+KRT14       KRT14      -1.516850  4.261562e-18  1.928701e-16
+S100B       S100B      -1.413114  3.289924e-23  2.481593e-21
+IRX1         IRX1      -1.411402  3.011786e-23  2.309036e-21
+CXCL13     CXCL13      -1.408321  1.927087e-17  8.217942e-16
+
+--- Creating Volcano Plot ---
+Volcano plot saved: figures/volcano_plot.pdf
+
+=== Script 02 Complete ===
+
+Step 3/5: Pathway Enrichment Analysis...
+Total DE genes:  83 
+Upregulated genes:  36 
+Downregulated genes:  47 
+Enriched pathways for UP genes: 12 
+
+--- GO Enrichment: Downregulated Genes ---
+Enriched pathways for DOWN genes: 142 
+
+Results saved to CSV files
+Plots saved to figures/ folder
+
+=== Pathway Enrichment Complete ===
+
+Step 4/5: Visualization (PCA & Heatmap)...
+
+=== VISUALISATION ===
+Loading preprocessed data... 
+Performing variance stabilizing transformation...
+
+--- Creating PCA Plot ---
+PC1 explains 21.5 % variance
+PC2 explains 8.5 % variance
+Saved: figures/PCA_plot.pdf
+
+--- Creating Heatmap ---
+Using top 50 genes by adjusted p-value
+Saved: figures/heatmap_top50_genes.pdf
+
+=== VISUALIZATION COMPLETE ===
+
+Step 5/5: Survival Analysis...
+Loading preprocessed data...
+Loading clinical data...
+Loading DE genes...
+DDS object: 14030 genes x 1068 samples
+Clinical data: 1084 patients
+DE genes: 83 genes
+Expression matrix for DE genes: 83 genes x 1068 samples
+Sample ID example: TCGA-3C-AAAU-01 
+Patient ID example: TCGA-3C-AAAU 
+Samples with matching clinical data: 1068 
+Combined data dimensions: 1068 samples x 85 variables
+
+Checking for missing data:
+NAs in time: 0 
+NAs in clinical: 0 
+Total rows with ANY NA: 0 
+NAs in gene expression columns: 0 
+Rows before filtering: 1068 
+Rows after filtering: 1068 
+
+Survival status breakdown:
+
+  0:LIVING 1:DECEASED 
+       920        148 
+After removing time <= 0: 1055 samples
+
+--- Running Lasso Cox Regression ---
+Best Lambda: 0.01604966 
+Number of genes selected by Lasso: 13 
+Selected genes: CDHR3 CEACAM5 CEACAM6 CXCL13 KRT5 NEK10 NTRK3 RAPGEFL1 RPL19 S100B TACR1 WNT11 ZNF385B 
+
+--- Creating Survival Model ---
+High risk patients: 527 
+Low risk patients: 528 
+Saved: results/lasso_selected_genes.csv
+
+--- Creating Kaplan-Meier Plot ---
+Saved: figures/kaplan_meier_risk_groups.pdf
+
+=== SURVIVAL ANALYSIS COMPLETE ===
+Total runtime: 12.59 minutes
+
+Outputs saved to:results and figures directories 

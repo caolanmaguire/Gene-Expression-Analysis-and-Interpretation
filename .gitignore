@@ -20,7 +20,6 @@ data/*.zip
 !data/.gitkeep
 
 # Large output files
-*.png
 *.jpg
 *.jpeg
 results/*.csv
