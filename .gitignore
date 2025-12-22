@@ -44,9 +44,5 @@ temp/
 *.tmp
 /data
 /results
-/figures
-/figures
-/figures
 .RData
 .Rhistory
-/figures
