@@ -1,5 +1,18 @@
 # main_analysis.R | Run all analysis scripts in order
 
+sink(file = "application_run_output.txt")
+
+
+cat("
+   __  ____________                        _           __              ____  _                     _            _       __         
+  / / / / ____/ __ \\   ____  _________    (_)__  _____/ /_            / __ \\(_)___     ____  _____(_)___  _____(_)___  / /__  _____
+ / / / / /   / / / /  / __ \\/ ___/ __ \\  / / _ \\/ ___/ __/  ______   / __  / / __ \\   / __ \\/ ___/ / __ \\/ ___/ / __ \\/ / _ \\/ ___/
+/ /_/ / /___/ /_/ /  / /_/ / /  / /_/ / / /  __/ /__/ /_   /_____/  / /_/ / / /_/ /  / /_/ / /  / / / / / /__/ / /_/ / /  __(__  ) 
+\\____/\\____/_____/  / .___/_/   \\____/_/ /\\___/\\___/\\__/           /_____/_/\\____/  / .___/_/  /_/_/ /_/\\___/_/ .___/_/\\___/____/  
+                   /_/              /___/                                          /_/                       /_/
+Caolán Maguire - UCD -2525669
+\n")
+
 
 
 # Record start time
@@ -31,3 +44,5 @@ elapsed_time <- difftime(end_time, start_time, units = "mins")
 
 cat("Total runtime:", round(elapsed_time, 2), "minutes\n")
 cat("\nOutputs saved to:results and figures directories \n")
+
+sink(file = NULL)

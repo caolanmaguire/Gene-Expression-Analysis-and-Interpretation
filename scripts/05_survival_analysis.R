@@ -78,7 +78,10 @@ y <- Surv(surv_data_complete$time, surv_data_complete$clinical == "1:DECEASED") 
 
 # Run cross-validated Lasso (FIX: was glmnet, should be cv.glmnet)
 cv_fit <- cv.glmnet(x, y, family="cox", alpha=1, nfolds=10)
-best_lambda <- cv_fit$lambda.1se
+
+# best_lambda <- cv_fit$lambda.1se
+best_lambda <- cv_fit$lambda.min
+
 cat("Best Lambda:", best_lambda, "\n")
 
 # Fit final model with best lambda

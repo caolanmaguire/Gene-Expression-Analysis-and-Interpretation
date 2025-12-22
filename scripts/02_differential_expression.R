@@ -2,6 +2,8 @@
 # Author: Caolán Maguire
 # Assignment: Assignment 2
 
+library(DESeq2)
+
 # Load the dds object saved in pre-processing script
 dds <- readRDS("results/dds_preprocessed.rds")
 
@@ -28,6 +30,8 @@ res_sig <- res_df[!is.na(res_df$padj) &
                     res_df$padj < 0.05 &
                     abs(res_df$log2FoldChange) > 1, ]
 
+#print(res_sig)
+
 # save these significant genes filtered above
 write.csv(res_sig, "results/DE_results_significant.csv", row.names = FALSE)
 
@@ -35,9 +39,8 @@ write.csv(res_sig, "results/DE_results_significant.csv", row.names = FALSE)
 cat("Total significant genes:", nrow(res_sig), "\n")
 
 
-# - - - - - - - - - - - - - - -
 # Get Top 10 Genes (5 up, 5 down)
-# - - - - - - - - - - - - - - -
+
 
 cat("\n--- Getting Top 10 Genes ---\n")
 
@@ -49,6 +52,9 @@ top5_up <- res_sig_sorted[res_sig_sorted$log2FoldChange > 0, ][1:5, ]
 
 # Get top 5 downregulated
 top5_down <- res_sig_sorted[res_sig_sorted$log2FoldChange < 0, ][1:5, ]
+
+print(top5_up)
+print(top5_down)
 
 # Combine
 top10 <- rbind(top5_up, top5_down)

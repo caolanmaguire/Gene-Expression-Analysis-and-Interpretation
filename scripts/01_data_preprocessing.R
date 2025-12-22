@@ -275,12 +275,7 @@ dds <- DESeqDataSetFromMatrix(
 cat("DESeq2 dataset created successfully\n")
 cat("Dimensions:", nrow(dds), "genes x", ncol(dds), "samples\n")
 
-# - - - - - - - - - - - - - - - 
 # Save Preprocessed Data
-# - - - - - - - - - - - - - - - 
-
-cat("\n--- Saving Preprocessed Data ---\n")
-
 # Create results directory if it doesn't exist
 if (!dir.exists("results")) {
   dir.create("results")
@@ -294,5 +289,4 @@ cat("Saved: results/dds_preprocessed.rds\n")
 write.csv(metadata, "results/metadata.csv", row.names = TRUE)
 cat("Saved: results/metadata.csv\n")
 
-cat("\n=== PREPROCESSING COMPLETE ===\n")
-cat("Ready for next step (differential expression analysis).\n")
+cat("\n=== PREPROCESSING COMPLETE ===\n\n\n\n")

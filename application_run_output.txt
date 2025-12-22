@@ -1,0 +1,23 @@
+
+   __  ____________                        _           __              ____  _                     _            _       __         
+  / / / / ____/ __ \   ____  _________    (_)__  _____/ /_            / __ \(_)___     ____  _____(_)___  _____(_)___  / /__  _____
+ / / / / /   / / / /  / __ \/ ___/ __ \  / / _ \/ ___/ __/  ______   / __  / / __ \   / __ \/ ___/ / __ \/ ___/ / __ \/ / _ \/ ___/
+/ /_/ / /___/ /_/ /  / /_/ / /  / /_/ / / /  __/ /__/ /_   /_____/  / /_/ / / /_/ /  / /_/ / /  / / / / / /__/ / /_/ / /  __(__  ) 
+\____/\____/_____/  / .___/_/   \____/_/ /\___/\___/\__/           /_____/_/\____/  / .___/_/  /_/_/ /_/\___/_/ .___/_/\___/____/  
+                   /_/              /___/                                          /_/                       /_/
+Caolán Maguire - UCD -2525669
+
+Step 1/5: Data Preprocessing...
+
+--- Working Directory Check ---
+Current directory: C:/Users/caola/OneDrive/Documents/GitHub/Gene-Expression-Analysis-and-Interpretation 
+Env setup
+
+--- File Existence Check ---
+Found rna : data/data_mrna_seq_v2_rsem.txt 
+Found clinical : data/data_clinical_patient.txt 
+Found cna : data/data_cna.txt 
+
+All files found. Proceeding with data loading...
+
+Loading rna data from: data_mrna_seq_v2_rsem.txt 
