@@ -53,16 +53,16 @@ cat("\n--- Creating Heatmap ---\n")
 # Load DE results to get top genes
 de_results <- read.csv("results/DE_results_significant.csv")
 de_results_sorted <- de_results[order(de_results$padj), ]
-top50_genes <- de_results_sorted$gene[1:50]
+top10_genes <- de_results_sorted$gene[1:10]
 
 cat("Using top 50 genes by adjusted p-value\n")
 
 # Extract VST values for top 50 genes
 vst_matrix <- assay(vst_data)
-top50_matrix <- vst_matrix[top50_genes, ]
+top10_matrix <- vst_matrix[top10_genes, ]
 
 # Z-score normalization (by row)
-top50_scaled <- t(scale(t(top50_matrix)))
+top10_scaled <- t(scale(t(top10_matrix)))
 
 # Create annotation for samples
 annotation_col <- data.frame(
@@ -76,9 +76,9 @@ annotation_colors <- list(
 )
 
 # Create heatmap
-pdf("figures/heatmap_top50_genes.pdf", width = 10, height = 12)
+pdf("figures/heatmap_top10_genes.pdf", width = 10, height = 12)
 pheatmap(
-  top50_scaled,
+  top10_scaled,
   annotation_col = annotation_col,
   annotation_colors = annotation_colors,
   color = colorRampPalette(rev(brewer.pal(n = 7, name = "RdBu")))(100),
