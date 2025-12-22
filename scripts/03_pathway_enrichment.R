@@ -9,7 +9,7 @@ library(ggplot2)
 # Verify it worked
 #cat("\nWorking directory:", getwd(), "\n")
 
-# Load your significant DE genes
+# Load your significant DE genesheatmap_top50_genes
 de_sig <- read.csv("results/DE_results_significant.csv")
 cat("Total DE genes: ", nrow(de_sig), "\n")
 

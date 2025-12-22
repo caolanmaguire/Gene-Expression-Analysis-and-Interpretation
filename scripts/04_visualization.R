@@ -2,25 +2,22 @@
 # Author: Caolán Maguire
 # Script 04: Visualization (PCA and Heatmap)
 
-cat("\n=== VISUALISATION ===\n")
-
 # Load libraries
 library(DESeq2)
 library(ggplot2)
 library(pheatmap)
 library(RColorBrewer)
 
-# Load preprocessed data
-cat("Loading preprocessed data... \n")
-dds <- readRDS("results/dds_preprocessed.rds")
 
-# Get VST transformed data
-cat("Performing variance stabilizing transformation...\n")
+cat("\n=== Visualisation script ===\n")
+
+# Load preprocessed data
+dds <- readRDS("results/dds_preprocessed.rds")
+# Performing variance stabilizing transformation
 vst_data <- vst(dds, blind = FALSE)
 
 # - - - - - PCA PLOT - - - - -
-cat("\n--- Creating PCA Plot ---\n")
-
+cat("\n--- Create PCA Plot ---\n")
 # Run PCA
 pca_data <- plotPCA(vst_data, intgroup = "ERBB2_status", returnData = TRUE)
 percent_var <- round(100 * attr(pca_data, "percentVar"), 1)

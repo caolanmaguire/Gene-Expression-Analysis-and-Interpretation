@@ -114,8 +114,10 @@ Total significant genes: 83
 
 --- Getting Top 10 Genes ---
            baseMean log2FoldChange      lfcSE     stat
-ERBB2    18302.3615       2.845020 0.07765729 36.63558
-GRB7      1309.9615       2.635151 0.07823947 33.68059
+ERBBTotal DE genes:  83 
+Upregulated genes:  36 
+Downregulated genes:  47 
+    2.635151 0.07823947 33.68059
 PPP1R1B   3456.5572       2.504771 0.15980061 15.67435
 C17orf37  1972.6841       2.433421 0.07080448 34.36819
 GSDMB      198.0061       2.320866 0.09479743 24.48237
